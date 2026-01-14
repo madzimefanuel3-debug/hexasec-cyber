@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadow Sec Pvt | Advanced Security Operations</title>
     <style>
-        /* Rebranded to Deep Tactical Blue */
         :root { 
             --neon: #00d4ff; 
             --bg: #020b14; 
@@ -32,26 +31,51 @@
             font-size: 0.8rem; font-weight: bold; position: sticky; top: 0; z-index: 100;
         }
 
+        /* Hero Section with Logo Space */
         .hero { 
-            height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; 
             text-align: center; border-bottom: 2px solid var(--neon); padding: 20px;
-            background: linear-gradient(rgba(2, 11, 20, 0.8), rgba(2, 11, 20, 0.8)), 
+            background: linear-gradient(rgba(2, 11, 20, 0.85), rgba(2, 11, 20, 0.85)), 
                         url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070');
             background-size: cover; background-position: center;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 2px solid var(--neon);
+            border-radius: 50%;
+            padding: 5px;
+            background: rgba(0, 212, 255, 0.05);
+            box-shadow: 0 0 20px var(--dim-neon);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px var(--dim-neon); border-color: var(--neon); }
+            50% { box-shadow: 0 0 35px var(--neon); border-color: #fff; }
+            100% { box-shadow: 0 0 15px var(--dim-neon); border-color: var(--neon); }
         }
 
         h1 { font-size: clamp(1.8rem, 7vw, 3.5rem); letter-spacing: 8px; margin: 0; text-shadow: 0 0 20px var(--neon); }
         h1 span { font-size: 0.5em; vertical-align: middle; border: 1px solid var(--neon); padding: 2px 10px; margin-left: 10px; opacity: 0.8; }
         
         .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .card { 
             border: 1px solid var(--neon); background: rgba(0, 5, 15, 0.9);
             transition: 0.4s; overflow: hidden;
         }
-
         .card:hover { transform: translateY(-10px); box-shadow: 0 0 30px var(--dim-neon); }
 
         .card-image {
@@ -103,6 +127,10 @@
     </nav>
     
     <section class="hero">
+        <div class="logo-container">
+            <img src="WhatsApp Image 2026-01-15 at 12.52.12 AM.jpeg" alt="Shadow Sec Logo" onerror="this.src='https://via.placeholder.com/150?text=LOGO+SCAN'">
+        </div>
+        
         <h1>SHADOW SEC <span>PVT</span></h1>
         <p>VISION 2028: TACTICAL CYBER INTELLIGENCE & DEFENSE</p>
         <a href="#contact" class="contact-btn">GET IN TOUCH</a>
