@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | HexaSec Cyber Tactical Modules</title>
+    <style>
+        :root { --neon: #00ff41; --bg: #050505; --dim: rgba(0, 255, 65, 0.1); }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background: var(--bg); color: var(--neon); 
+            font-family: 'Courier New', monospace; margin: 0; padding: 20px; 
+        }
+
+        .manual-frame {
+            max-width: 1000px; margin: 40px auto; border: 1px solid var(--neon);
+            padding: 40px; background: rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        .manual-frame::before {
+            content: "TACTICAL_SERVICE_CATALOGUE_V2.8";
+            position: absolute; top: -12px; left: 20px;
+            background: var(--bg); padding: 0 10px; font-size: 0.8rem; font-weight: bold;
+        }
+
+        h1 { font-size: 2.5rem; border-bottom: 2px solid var(--neon); padding-bottom: 10px; margin-top: 0; letter-spacing: 2px; }
+
+        .service-block { 
+            margin-top: 50px; 
+            border-left: 3px solid var(--neon); 
+            padding-left: 25px; 
+            margin-bottom: 60px;
+        }
+
+        .service-id { font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+        .service-title { font-size: 1.8rem; text-transform: uppercase; margin-bottom: 15px; }
+        .description { color: #ccc; line-height: 1.7; margin-bottom: 20px; }
+
+        .module-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .sub-module { 
+            border: 1px solid var(--dim); 
+            padding: 15px; 
+            background: rgba(0,255,65,0.03);
+            font-size: 0.9rem;
+        }
+
+        .sub-module b { color: #fff; display: block; margin-bottom: 5px; }
+
+        .cta-section { 
+            margin-top: 80px; 
+            text-align: center; 
+            border: 1px dashed var(--neon); 
+            padding: 40px;
+        }
+
+        .btn-link { 
+            border: 1px solid var(--neon); 
+            color: var(--neon); 
+            padding: 12px 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-link:hover { background: var(--neon); color: #000; box-shadow: 0 0 20px var(--neon); }
+
+        footer { text-align: center; color: #444; font-size: 0.8rem; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="manual-frame">
+        <h1>> SERVICE_MODULES</h1>
+        <p>Deployable security solutions engineered by Fanuel Madzime for the 2028 landscape.</p>
+
+        <div class="service-block">
+            <div class="service-id">MODULE_01</div>
+            <div class="service-title">OFFENSIVE SECURITY (RED TEAMING)</div>
+            <p class="description">We simulate advanced persistent threats to find the holes in your defense before real attackers do. This is the ultimate stress test for your organization.</p>
+            
+            <div class="module-grid">
+                <div class="sub-module">
+                    <b>PENTESTING</b>
+                    Deep analysis of web apps, APIs, and network protocols.
+                </div>
+                <div class="sub-module">
+                    <b>SOCIAL ENGINEERING</b>
+                    Testing the human perimeter through phishing simulations.
+                </div>
+                <div class="sub-module">
+                    <b>VULNERABILITY SCAN</b>
+                    Automated and manual discovery of system weaknesses.
+                </div>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-id">MODULE_02</div>
+            <div class="service-title">INFRASTRUCTURE HARDENING (BLUE TEAMING)</div>
+            <p class="description">Active defense strategies designed to monitor, detect, and neutralize threats in real-time. We turn your network into a "Zero-Trust" environment.</p>
+            
+            <div class="module-grid">
+                <div class="sub-module">
+                    <b>EDR/XDR DEPLOYMENT</b>
+                    Advanced endpoint protection and response systems.
+                </div>
+                <div class="sub-module">
+                    <b>NETWORK SEGMENTATION</b>
+                    Isolating critical data to prevent lateral movement of attackers.
+                </div>
+                <div class="sub-module">
+                    <b>INCIDENT RESPONSE</b>
+                    24/7 support to contain and recover from active breaches.
+                </div>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-id">MODULE_03</div>
+            <div class="service-title">AI THREAT INTELLIGENCE</div>
+            <p class="description">Predictive defense using data science. We monitor global threat feeds and the dark web to secure your perimeter against upcoming attack waves.</p>
+            
+            <div class="module-grid">
+                <div class="sub-module">
+                    <b>OSINT ANALYSIS</b>
+                    Open-source intelligence gathering on potential adversaries.
+                </div>
+                <div class="sub-module">
+                    <b>DARK WEB SCAN</b>
+                    Detecting leaked credentials and corporate data on underground forums.
+                </div>
+                <div class="sub-module">
+                    <b>AI PREDICTION</b>
+                    Using ML models to identify patterns of unknown malware.
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>INITIALIZE PROJECT DEPLOYMENT?</h3>
+            <p>Connect with Fanuel Madzime for a custom tactical brief.</p><br>
+            <a href="mailto:madzimefanuel3@yahoo.com" class="btn-link">REQUEST CONSULTATION</a>
+            <br><br>
+            <a href="index.html" style="color: var(--neon); text-decoration: none; font-size: 0.8rem;">[ RETURN TO DASHBOARD ]</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 HEXASEC-CYBER // SECURE_CATALOGUE_LOADED
+    </footer>
+
+</body>
+</html>
