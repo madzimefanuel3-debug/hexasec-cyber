@@ -56,7 +56,6 @@
 
         .card-image {
             height: 200px; width: 100%; object-fit: cover;
-            /* Adjusted filter for Blue theme */
             filter: grayscale(100%) brightness(60%) sepia(100%) hue-rotate(180deg);
         }
 
@@ -105,7 +104,7 @@
     
     <section class="hero">
         <h1>SHADOW SEC <span>PVT</span></h1>
-        <p>VISION 2028: THE NEXT GENERATION OF BLUE-OPS DEFENSE</p>
+        <p>VISION 2028: TACTICAL CYBER INTELLIGENCE & DEFENSE</p>
         <a href="#contact" class="contact-btn">GET IN TOUCH</a>
     </section>
 
@@ -153,15 +152,14 @@
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        /* Updated Matrix Letters to match Blue Rebrand */
         const letters = "0101010101SHADOWSECPVT";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
         function draw() {
-            ctx.fillStyle = 'rgba(2, 11, 20, 0.05)'; // Matches new background
+            ctx.fillStyle = 'rgba(2, 11, 20, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#00d4ff'; // Matches new neon blue
+            ctx.fillStyle = '#00d4ff';
             ctx.font = fontSize + 'px monospace';
             for (let i = 0; i < drops.length; i++) {
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
