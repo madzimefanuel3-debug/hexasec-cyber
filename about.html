@@ -3,93 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | HexaSec Cyber</title>
+    <title>Personnel File | Fanuel Madzime</title>
     <style>
-        :root { --neon: #00ff41; --bg: #050505; }
+        :root { --neon: #00ff41; --bg: #050505; --dim: rgba(0, 255, 65, 0.1); }
+        
+        * { box-sizing: border-box; }
         body { 
-            background: var(--bg); 
-            color: var(--neon); 
-            font-family: 'Courier New', monospace; 
-            margin: 0; 
-            padding: 20px; 
-        }
-        .container { 
-            max-width: 800px; 
-            margin: 60px auto; 
-            padding: 40px; 
-            border: 1px solid var(--neon); 
-            background: rgba(0,255,65,0.05);
-            box-shadow: 0 0 20px rgba(0,255,65,0.2);
-        }
-        h1 { border-bottom: 2px solid var(--neon); padding-bottom: 10px; margin-top: 0; }
-        
-        .profile-section { 
-            display: flex; 
-            gap: 30px; 
-            align-items: flex-start; 
-            margin-top: 30px; 
-            flex-wrap: wrap;
+            background: var(--bg); color: var(--neon); 
+            font-family: 'Courier New', monospace; margin: 0; padding: 20px; 
         }
 
+        .folder {
+            max-width: 900px; margin: 40px auto; border: 1px solid var(--neon);
+            padding: 40px; position: relative; background: rgba(0,0,0,0.8);
+            box-shadow: 0 0 20px var(--dim);
+        }
+
+        .folder::before {
+            content: "RESTRICTED ACCESS: LEVEL 4";
+            position: absolute; top: -12px; left: 20px;
+            background: var(--bg); padding: 0 10px; font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .header-box { display: flex; gap: 30px; border-bottom: 2px solid var(--neon); padding-bottom: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        
         .id-photo {
-            width: 180px;
-            height: 220px;
-            border: 1px solid var(--neon);
-            background: #111;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            width: 150px; height: 180px; border: 1px solid var(--neon);
+            background: var(--dim); overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
-
-        .id-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* This makes your photo look like a high-contrast security scan */
-            filter: grayscale(100%) brightness(90%) contrast(120%);
-        }
-
-        .bio-text { flex: 1; line-height: 1.6; min-width: 300px; }
-        .bio-text p { margin: 10px 0; }
         
-        .back-btn { 
-            display: inline-block; 
-            margin-top: 30px; 
-            padding: 12px 25px; 
-            border: 1px solid var(--neon); 
-            color: #000; 
-            background: var(--neon); 
-            text-decoration: none; 
-            font-weight: bold; 
-            text-transform: uppercase;
+        .id-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%) contrast(120%) brightness(80%);
         }
-        .back-btn:hover { background: #fff; border-color: #fff; }
+
+        .bio-info h1 { margin: 0; font-size: 2.2rem; text-shadow: 0 0 10px var(--neon); }
+        .stat { color: #fff; margin: 8px 0; font-size: 0.95rem; }
+        .stat span { color: var(--neon); font-weight: bold; }
+
+        .section-title { 
+            background: var(--neon); color: #000; padding: 5px 12px; 
+            display: inline-block; margin-top: 30px; font-weight: bold; 
+            letter-spacing: 1px;
+        }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .skill-item { border: 1px solid var(--dim); padding: 10px; background: rgba(0,255,65,0.02); }
+        .skill-bar { height: 6px; background: #1a1a1a; margin-top: 8px; position: relative; border: 1px solid #333; }
+        .skill-progress { height: 100%; background: var(--neon); box-shadow: 0 0 10px var(--neon); }
+
+        .vision-list { line-height: 2; margin-top: 15px; }
+        .vision-list li { margin-bottom: 10px; list-style-type: square; }
+
+        .action-bar { margin-top: 50px; border-top: 1px solid var(--dim); padding-top: 20px; text-align: center; }
+        .btn-back {
+            display: inline-block; padding: 10px 25px; border: 1px solid var(--neon);
+            color: var(--neon); text-decoration: none; font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--neon); color: #000; box-shadow: 0 0 15px var(--neon); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>> PERSONNEL_FILE: FANUEL MADZIME</h1>
-        
-        <div class="profile-section">
+    <div class="folder">
+        <div class="header-box">
             <div class="id-photo">
-                <img src="https://via.placeholder.com/180x220?text=SCANNING+ID..." alt="Fanuel Madzime">
+                <img src="fanuel.jpg" alt="Fanuel Madzime" onerror="this.src='https://via.placeholder.com/150x180?text=SCANNING...'">
             </div>
-
-            <div class="bio-text">
-                <p><strong>POSITION:</strong> Chief Security Analyst & Founder</p>
-                <p><strong>OBJECTIVE:</strong> Lead the 2028 Vision for global digital defense.</p>
-                <hr style="border: 0; border-top: 1px solid var(--neon); margin: 20px 0;">
-                
-                <p>With a deep focus on the evolving threat landscape, Fanuel Madzime founded HexaSec Cyber to bridge the gap between corporate infrastructure and advanced defensive intelligence.</p>
-                
-                <p>Specializing in Red Team operations and strategic network hardening, Fanuel leads the HexaSec mission to ensure that Vision 2028 becomes the gold standard for cybersecurity resilience in Zambia and beyond.</p>
+            <div class="bio-info">
+                <h1>FANUEL MADZIME</h1>
+                <p class="stat">DESIGNATION: <span>Founder / Chief Security Analyst</span></p>
+                <p class="stat">CLEARANCE: <span>Level 4 (Top Secret)</span></p>
+                <p class="stat">LOCATION: <span>Zambia // Global Operations</span></p>
+                <p class="stat">STATUS: <span>Active - Monitoring Vision 2028</span></p>
             </div>
         </div>
 
-        <a href="index.html" class="back-btn"><< RETURN TO DASHBOARD</a>
+        <div class="section-title">EXECUTIVE SUMMARY</div>
+        <p>A cybersecurity specialist focused on the next generation of digital warfare. Fanuel Madzime established HexaSec Cyber to provide proactive defense mechanisms against evolving AI-driven threats. With a philosophy rooted in "Prevention through Prediction," he leads the firm toward the Vision 2028 resilience framework.</p>
+
+        <div class="section-title">CORE COMPETENCIES</div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                Ethical Hacking
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+                Network Hardening
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-item">
+                Incident Response
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item">
+                AI Security
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+        </div>
+
+        <div class="section-title">VISION 2028 GOALS</div>
+        <ul class="vision-list">
+            <li>Elimination of zero-day vulnerabilities in client networks.</li>
+            <li>Implementation of autonomous threat-hunting AI.</li>
+            <li>Securing national digital infrastructure through Zero-Trust protocols.</li>
+        </ul>
+
+        <div class="action-bar">
+            <a href="index.html" class="btn-back"><< RETURN TO DASHBOARD</a>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 HEXASEC-CYBER // OPERATED BY FANUEL MADZIME
+    </footer>
 
 </body>
 </html>
