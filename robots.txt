@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://madzimefanuel3-debug.github.io/shadow-sec-pvt/sitemap.xml
