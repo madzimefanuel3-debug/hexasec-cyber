@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Disclaimer | HexaSec Cyber</title>
+    <title>Legal Disclaimer | Shadow Sec Pvt</title>
     <style>
-        :root { --neon: #00ff41; --bg: #050505; --dim: rgba(0, 255, 65, 0.1); }
+        /* Rebranded to Deep Tactical Blue */
+        :root { 
+            --neon: #00d4ff; 
+            --bg: #020b14; 
+            --dim: rgba(0, 212, 255, 0.1); 
+            --warning-red: #ff3131;
+        }
         
         * { box-sizing: border-box; }
         body { 
@@ -14,24 +20,24 @@
         }
 
         .folder {
-            max-width: 800px; margin: 40px auto; border: 1px solid #ff3131; /* Red border for warning */
-            padding: 40px; position: relative; background: rgba(0,0,0,0.9);
+            max-width: 800px; margin: 40px auto; border: 1px solid var(--warning-red); 
+            padding: 40px; position: relative; background: rgba(0, 5, 15, 0.9);
             box-shadow: 0 0 20px rgba(255, 49, 49, 0.1);
         }
 
         .folder::before {
             content: "LEGAL_NOTICE // SECTION_9_COMPLIANCE";
             position: absolute; top: -12px; left: 20px;
-            background: var(--bg); padding: 0 10px; font-size: 0.8rem; font-weight: bold; color: #ff3131;
+            background: var(--bg); padding: 0 10px; font-size: 0.8rem; font-weight: bold; color: var(--warning-red);
         }
 
-        h1 { color: #ff3131; border-bottom: 2px solid #ff3131; padding-bottom: 10px; margin-top: 0; }
+        h1 { color: var(--warning-red); border-bottom: 2px solid var(--warning-red); padding-bottom: 10px; margin-top: 0; }
 
         .law-block { margin-top: 30px; line-height: 1.8; color: #ccc; }
-        .law-block b { color: #ff3131; }
+        .law-block b { color: var(--warning-red); }
 
         .warning-box {
-            border: 1px dashed #ff3131;
+            border: 1px dashed var(--warning-red);
             padding: 20px;
             margin: 30px 0;
             background: rgba(255, 49, 49, 0.05);
@@ -42,9 +48,13 @@
             border: 1px solid var(--neon); color: var(--neon); 
             text-decoration: none; font-weight: bold; transition: 0.3s;
         }
-        .btn-return:hover { background: var(--neon); color: #000; }
+        .btn-return:hover { 
+            background: var(--neon); 
+            color: #000; 
+            box-shadow: 0 0 15px var(--neon);
+        }
 
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px; color: #446; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -53,15 +63,15 @@
         <h1>> LEGAL_DISCLAIMER</h1>
         
         <div class="law-block">
-            <p><b>01. ETHICAL USE ONLY:</b> All tools, techniques, and information provided by HexaSec Cyber and Fanuel Madzime are for <b>educational and professional security testing purposes only</b>. Unauthorized access to computer systems is illegal.</p>
+            <p><b>01. ETHICAL USE ONLY:</b> All tools, techniques, and information provided by <b>Shadow Sec Pvt</b> and Fanuel Madzime are for <b>educational and professional security testing purposes only</b>. Unauthorized access to computer systems is illegal.</p>
             
-            <p><b>02. NO LIABILITY:</b> HexaSec Cyber is not responsible for any misuse of information or damage caused by the application of the techniques described on this site. Users are responsible for complying with local and international laws (including the Cybersecurity and Cyber Crimes Act of Zambia).</p>
+            <p><b>02. NO LIABILITY:</b> <b>Shadow Sec Pvt</b> is not responsible for any misuse of information or damage caused by the application of the techniques described on this site. Users are responsible for complying with local and international laws (including the Cybersecurity and Cyber Crimes Act of Zambia).</p>
 
             <div class="warning-box">
                 <b>ATTENTION:</b> Engagement in "Red Teaming" or "Penetration Testing" without a signed written contract and explicit permission from the target system owner is a criminal offense.
             </div>
 
-            <p><b>03. NO GUARANTEE:</b> While we strive for the "Vision 2028" framework of total resilience, cybersecurity is an evolving field. HexaSec Cyber does not guarantee 100% immunity from all future cyber threats.</p>
+            <p><b>03. NO GUARANTEE:</b> While we strive for the "Vision 2028" framework of total resilience, cybersecurity is an evolving field. <b>Shadow Sec Pvt</b> does not guarantee 100% immunity from all future cyber threats.</p>
         </div>
 
         <div style="text-align: center;">
@@ -70,7 +80,7 @@
     </div>
 
     <footer>
-        &copy; 2026 HEXASEC-CYBER // LEGAL DEPT // LUSAKA_ZM
+        &copy; 2026 SHADOW SEC PVT // LEGAL DEPT // LUSAKA_ZM
     </footer>
 
 </body>
