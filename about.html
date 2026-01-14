@@ -7,9 +7,31 @@
     <style>
         :root { --neon: #00ff41; --bg: #050505; --dim: rgba(0, 255, 65, 0.1); }
         
+        * { box-sizing: border-box; }
         body { 
             background: var(--bg); color: var(--neon); 
-            font-family: 'Courier New', monospace; margin: 0; padding: 20px; 
+            font-family: 'Courier New', monospace; margin: 0; padding: 0; 
+        }
+
+        /* Matching Navigation Bar */
+        .main-nav {
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            padding: 20px; 
+            background: rgba(0,0,0,0.8); 
+            border-bottom: 1px solid var(--neon);
+            position: relative;
+            z-index: 1001;
+        }
+        .main-nav a {
+            color: var(--neon); 
+            text-decoration: none; 
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .main-nav a:hover {
+            text-shadow: 0 0 10px var(--neon);
         }
 
         .folder {
@@ -24,39 +46,44 @@
             background: var(--bg); padding: 0 10px; font-size: 0.8rem;
         }
 
-        .header-box { display: flex; gap: 30px; border-bottom: 2px solid var(--neon); padding-bottom: 20px; margin-bottom: 30px; }
+        .header-box { display: flex; gap: 30px; border-bottom: 2px solid var(--neon); padding-bottom: 20px; margin-bottom: 30px; flex-wrap: wrap; }
         
         .id-photo {
             width: 150px; height: 180px; border: 1px solid var(--neon);
-            background: var(--dim); display: flex; align-items: center; justify-content: center;
-            text-align: center; font-size: 0.7rem;
+            background: var(--dim); overflow: hidden;
+        }
+        
+        .id-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%) contrast(120%) brightness(80%);
         }
 
         .bio-info h1 { margin: 0; font-size: 2rem; }
         .stat { color: #fff; margin: 5px 0; font-size: 0.9rem; }
         .stat span { color: var(--neon); font-weight: bold; }
 
-        .section-title { background: var(--neon); color: #000; padding: 5px 10px; display: inline-block; margin-top: 30px; }
+        .section-title { background: var(--neon); color: #000; padding: 5px 10px; display: inline-block; margin-top: 30px; font-weight: bold; }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .skill-item { border: 1px solid var(--dim); padding: 10px; background: rgba(0,255,65,0.02); }
         .skill-bar { height: 4px; background: #222; margin-top: 8px; position: relative; }
         .skill-progress { height: 100%; background: var(--neon); box-shadow: 0 0 10px var(--neon); }
 
-        .nav-btn {
-            display: inline-block; margin-top: 40px; padding: 10px 20px;
-            border: 1px solid var(--neon); color: var(--neon); text-decoration: none;
-            transition: 0.3s;
-        }
-        .nav-btn:hover { background: var(--neon); color: #000; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+    <nav class="main-nav">
+        <a href="index.html">[ HOME ]</a>
+        <a href="about.html">[ ABOUT ]</a>
+        <a href="services.html">[ SERVICES ]</a>
+    </nav>
+
     <div class="folder">
         <div class="header-box">
             <div class="id-photo">
-                [PHOTO_ID]<br>FANUEL_MADZIME<br>NO_IMG_FOUND
+                <img src="https://via.placeholder.com/150x180?text=FANUEL+PHOTO" alt="Fanuel Madzime">
             </div>
             <div class="bio-info">
                 <h1>FANUEL MADZIME</h1>
@@ -91,14 +118,16 @@
         </div>
 
         <div class="section-title">VISION 2028 GOALS</div>
-        <ul>
+        <ul style="line-height: 2;">
             <li>Elimination of zero-day vulnerabilities in client networks.</li>
             <li>Implementation of autonomous threat-hunting AI.</li>
             <li>Securing national digital infrastructure through Zero-Trust protocols.</li>
         </ul>
-
-        <a href="index.html" class="nav-link nav-btn"><< BACK TO DASHBOARD</a>
     </div>
+
+    <footer>
+        &copy; 2026 HEXASEC-CYBER // OPERATED BY FANUEL MADZIME
+    </footer>
 
 </body>
 </html>
