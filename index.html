@@ -3,102 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personnel File | Fanuel Madzime</title>
+    <title>HexaSec Cyber | Advanced Security Operations</title>
     <style>
-        :root { --neon: #00ff41; --bg: #050505; --dim: rgba(0, 255, 65, 0.1); }
+        :root { --neon: #00ff41; --bg: #050505; --dim-neon: rgba(0, 255, 65, 0.2); }
         
+        * { box-sizing: border-box; scroll-behavior: smooth; }
         body { 
-            background: var(--bg); color: var(--neon); 
-            font-family: 'Courier New', monospace; margin: 0; padding: 20px; 
+            background: var(--bg); 
+            color: var(--neon); 
+            font-family: 'Courier New', monospace; 
+            margin: 0; 
+            line-height: 1.6;
         }
 
-        .folder {
-            max-width: 900px; margin: 40px auto; border: 1px solid var(--neon);
-            padding: 40px; position: relative; background: rgba(0,0,0,0.8);
-            box-shadow: 0 0 20px var(--dim);
+        #matrix-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.15;
         }
 
-        .folder::before {
-            content: "RESTRICTED ACCESS: LEVEL 4";
-            position: absolute; top: -12px; left: 20px;
-            background: var(--bg); padding: 0 10px; font-size: 0.8rem;
+        .status-bar { 
+            background: var(--neon); color: #000; padding: 8px; text-align: center; 
+            font-size: 0.8rem; font-weight: bold; position: sticky; top: 0; z-index: 100;
         }
 
-        .header-box { display: flex; gap: 30px; border-bottom: 2px solid var(--neon); padding-bottom: 20px; margin-bottom: 30px; }
+        /* Top Navigation */
+        .top-nav {
+            display: flex; justify-content: flex-end; padding: 20px;
+            position: absolute; width: 100%; z-index: 1000;
+        }
+        .nav-link {
+            color: var(--neon); text-decoration: none; font-weight: bold;
+            border: 1px solid var(--neon); padding: 5px 15px; transition: 0.3s;
+        }
+        .nav-link:hover { background: var(--neon); color: #000; }
+
+        .hero { 
+            height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            text-align: center; border-bottom: 2px solid var(--neon); padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover; background-position: center;
+        }
+
+        h1 { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 10px; margin: 0; text-shadow: 0 0 20px var(--neon); }
         
-        .id-photo {
-            width: 150px; height: 180px; border: 1px solid var(--neon);
-            background: var(--dim); display: flex; align-items: center; justify-content: center;
-            text-align: center; font-size: 0.7rem;
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { 
+            border: 1px solid var(--neon); background: rgba(0,0,0,0.9);
+            transition: 0.4s; overflow: hidden;
         }
 
-        .bio-info h1 { margin: 0; font-size: 2rem; }
-        .stat { color: #fff; margin: 5px 0; font-size: 0.9rem; }
-        .stat span { color: var(--neon); font-weight: bold; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 0 30px var(--dim-neon); }
 
-        .section-title { background: var(--neon); color: #000; padding: 5px 10px; display: inline-block; margin-top: 30px; }
+        .card-image {
+            height: 200px; width: 100%; object-fit: cover;
+            filter: grayscale(100%) brightness(60%) sepia(100%) hue-rotate(90deg);
+        }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .skill-item { border: 1px solid var(--dim); padding: 10px; background: rgba(0,255,65,0.02); }
-        .skill-bar { height: 4px; background: #222; margin-top: 8px; position: relative; }
-        .skill-progress { height: 100%; background: var(--neon); box-shadow: 0 0 10px var(--neon); }
+        .card-content { padding: 25px; }
+        .card-content h3 { margin-top: 0; color: #fff; border-bottom: 1px solid var(--neon); padding-bottom: 5px; }
 
-        .nav-btn {
-            display: inline-block; margin-top: 40px; padding: 10px 20px;
-            border: 1px solid var(--neon); color: var(--neon); text-decoration: none;
+        .contact-box {
+            margin-top: 80px; padding: 40px; border: 2px dashed var(--neon);
+            text-align: center; background: rgba(0, 255, 65, 0.05);
+        }
+
+        .contact-btn { 
+            display: inline-block; padding: 18px 50px; border: 2px solid var(--neon); 
+            color: var(--neon); text-decoration: none; font-weight: bold; margin-top: 25px;
             transition: 0.3s;
         }
-        .nav-btn:hover { background: var(--neon); color: #000; }
+        .contact-btn:hover { background: var(--neon); color: #000; box-shadow: 0 0 40px var(--neon); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
+    <canvas id="matrix-bg"></canvas>
+    
+    <div class="status-bar">AUTHENTICATED: ADMIN_FANUEL // SESSION: ENCRYPTED // MISSION: VISION 2028</div>
 
-    <div class="folder">
-        <div class="header-box">
-            <div class="id-photo">
-                [PHOTO_ID]<br>FANUEL_MADZIME<br>NO_IMG_FOUND
+    <nav class="top-nav">
+        <a href="about.html" class="nav-link">PERSONNEL FILE (ABOUT)</a>
+    </nav>
+    
+    <section class="hero">
+        <h1>HEXASEC-CYBER</h1>
+        <p>VISION 2028: THE NEXT GENERATION OF DEFENSE</p>
+        <a href="#contact" class="contact-btn">GET IN TOUCH</a>
+    </section>
+
+    <div class="container">
+        <h2>> SERVICE MODULES</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000" class="card-image" alt="Red Team">
+                <div class="card-content">
+                    <h3>01. RED TEAMING</h3>
+                    <p>Advanced penetration testing and ethical hacking to uncover hidden weaknesses before adversaries do.</p>
+                </div>
             </div>
-            <div class="bio-info">
-                <h1>FANUEL MADZIME</h1>
-                <p class="stat">DESIGNATION: <span>Founder / Chief Security Analyst</span></p>
-                <p class="stat">CLEARANCE: <span>Level 4 (Top Secret)</span></p>
-                <p class="stat">LOCATION: <span>Zambia // Global Operations</span></p>
-                <p class="stat">STATUS: <span>Active - Monitoring Vision 2028</span></p>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" class="card-image" alt="Blue Team">
+                <div class="card-content">
+                    <h3>02. BLUE TEAMING</h3>
+                    <p>Proactive defense, network hardening, and 24/7 security monitoring for resilient infrastructure.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" class="card-image" alt="Intelligence">
+                <div class="card-content">
+                    <h3>03. INTELLIGENCE</h3>
+                    <p>Leveraging AI and global threat data to predict and neutralize threats at the edge of your network.</p>
+                </div>
             </div>
         </div>
 
-        <div class="section-title">EXECUTIVE SUMMARY</div>
-        <p>A cybersecurity specialist focused on the next generation of digital warfare. Fanuel Madzime established HexaSec Cyber to provide proactive defense mechanisms against evolving AI-driven threats. With a philosophy rooted in "Prevention through Prediction," he leads the firm toward the Vision 2028 resilience framework.</p>
-
-        <div class="section-title">CORE COMPETENCIES</div>
-        <div class="skills-grid">
-            <div class="skill-item">
-                Ethical Hacking
-                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-item">
-                Network Hardening
-                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-            </div>
-            <div class="skill-item">
-                Incident Response
-                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
-            </div>
-            <div class="skill-item">
-                AI Security
-                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-            </div>
+        <div class="contact-box" id="contact">
+            <h2>> INITIALIZE SECURE CONTACT</h2>
+            <p>Direct inquiries to Chief Security Analyst: <strong>madzimefanuel3@yahoo.com</strong></p>
+            <a href="mailto:madzimefanuel3@yahoo.com" class="contact-btn">ESTABLISH SECURE CHANNEL</a>
         </div>
-
-        <div class="section-title">VISION 2028 GOALS</div>
-        <ul>
-            <li>Elimination of zero-day vulnerabilities in client networks.</li>
-            <li>Implementation of autonomous threat-hunting AI.</li>
-            <li>Securing national digital infrastructure through Zero-Trust protocols.</li>
-        </ul>
-
-        <a href="index.html" class="nav-link nav-btn"><< BACK TO DASHBOARD</a>
     </div>
 
+    <footer>
+        &copy; 2026 HEXASEC-CYBER // OPERATED BY FANUEL MADZIME
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "0101010101HEXASECCYBER";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+    </script>
 </body>
 </html>
